@@ -1,5 +1,10 @@
 "use strict";
 
+import chalk from "chalk";
+import Style from "./style.js";
+
+const style = new Style();
+
 const help = () => {
   console.log(`Program usage:
   Use <output> <color> to set a color of the output, use restore instead of color for default settings
@@ -7,12 +12,24 @@ const help = () => {
   Use <exit> to exit the program`);
 };
 
-const output = (color) => {
-  return;
+const output = (arg) => {
+  if (arg == "restore") {
+    style.style = null;
+    return;
+  }
+
+  const color = chalk[arg];
+  if (color) {
+    style.style = color;
+    console.log(style.applyStyle("Color was applied!"));
+  } else {
+    return new Error("The color can not be applied...");
+  }
 };
 
 const print = (string) => {
-  console.log(string)
+  if (style.style) console.log(style.applyStyle(string));
+  else console.log(string);
 };
 
 const exit = () => {

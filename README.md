@@ -45,3 +45,11 @@ Lets you print the string with the set color
     exit
 
 Lets you exit the program
+
+## Dockerfile
+
+To build and run dockerfile image use commands:
+
+    docker build -f Dockerfile -t lab03:n1 .
+
+    docker run --rm -it lab03:n1

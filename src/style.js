@@ -1,13 +1,13 @@
 "use strict";
 
 class Style {
-    constructor() {
-      this.style = null;
-    }
-  
-    applyStyle(string) {
-      return this.style(string);
-    }
+  constructor() {
+    this.style = null;
   }
-  
-  export default Style;
+
+  applyStyle(string) {
+    return this.style(string);
+  }
+}
+
+export default Style;
